@@ -1,3 +1,2 @@
-web: apache2ctl-standallone
-worker: apache2ctl-standallone
+web: supervisord
 build: composer install
