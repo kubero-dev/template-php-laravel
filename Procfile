@@ -1,2 +1,2 @@
-web: apache2-foreground
+web: supervisord
 build: composer install
