@@ -1,2 +1,2 @@
-web: /usr/local/bin/docker-entrypoint.sh
+web: apache2-foreground
 build: composer install
