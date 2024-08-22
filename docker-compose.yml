@@ -1,6 +1,20 @@
 # For more information: https://laravel.com/docs/sail
 version: '3'
 services:
+    buildpack.php.laravel:
+        #image: gcr.io/paketo-buildpacks/builder:base
+        image: paketobuildpacks/builder-jammy-full:latest
+        container_name: "buildpack"
+        command: tail -f /dev/null
+        # /cnb/lifecycle/creator -app=. registry.kubero.domain.com/exampleapp:test
+        environment:
+            #CNB_USER_ID: 1000
+            #CNB_GROUP_ID: 1000
+            CNB_PLATFORM_API: "0.13"
+        volumes:
+            - ./:/app
+            - .docker:/home/cnb/.docker
+        working_dir: /app
     laravel.test:
         build:
             context: ./vendor/laravel/sail/runtimes/8.1
